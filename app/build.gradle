@@ -2,25 +2,60 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+apply from: '../version.gradle'
 
 android {
-    compileSdk 32
+    compileSdk deps.versions.compileSdkVersion
 
     defaultConfig {
         applicationId "com.base.basemodule"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        minSdk deps.versions.minSdkVersion
+        targetSdk deps.versions.compileSdkVersion
+        versionCode deps.versions.versionCode
+        versionName deps.versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    flavorDimensions "server"
+//    productFlavors {
+//        dev {
+//            // 테스트 서버 버전
+//            dimension "server"
+//            resValue "string", "server_url", "http://"
+//            versionNameSuffix "-dev"
+//            applicationIdSuffix '.dev'
+//            minSdkVersion 24
+//            resConfigs "ko", "xxhdpi"
+//        }
+//        prod {
+//            // 실 서버 버전
+//            dimension "server"
+//            resValue "string", "server_url", "http://"
+//        }
+//    }
+
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            debuggable true
+            ext.enableCrashlytics = false // 디버그일 경우 충돌보고서 사용 x
+//            ext.alwaysUpdateBuildId = false // 빌드 시 고유 빌드 ID 업데이트 방지
+            aaptOptions.cruncherEnabled = false
+            splits.abi.enable = false // 화면 밀도에 따라 여러개의 APK파일을 빌드하는 작업 x
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -29,15 +64,22 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.ktx
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
+
+    implementation project(':core')
+    implementation project(':view')
+    implementation project(':common')
 }

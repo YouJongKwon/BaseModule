@@ -1,0 +1,93 @@
+ext.deps = [:]
+
+def deps = [:]
+
+/**
+ *  versions.gradle
+ *
+ *  'com.android.tools.build:gradle:2.+'
+ *  위와같은 동적 버전번호 사용 시 예상치못한 버전 업데이트 발생하여 버전차이를 확인하기 어렵게 되며,
+ *  업데이트 확인으로 인해 빌드속도가 느려질 수 있다.
+ *  -> 명확한 버전을 명시하여 관리하는게 좋다.
+ */
+def versions = [:]
+deps.versions = versions
+
+// build version
+deps.versions.compileSdkVersion = 32
+deps.versions.buildToolsVersion = "30.0.3"
+deps.versions.minSdkVersion = 21
+deps.versions.versionCode = 1
+deps.versions.versionName = "1.0.0"
+
+// source version
+versions.kotlin_version = '1.6.0'
+versions.kotlin_coroutine_version = '1.6.0'
+versions.ktx = '1.7.0'
+versions.appcompat_version = '1.4.2'
+versions.material = '1.6.1'
+versions.constraint_version = '2.1.4'
+versions.recyclerview = '1.2.1'
+versions.viewpager2 = '1.0.0'
+versions.room = '2.3.0'
+versions.lifecycle = '2.2.0'
+versions.viewmodel = '2.3.1'
+
+versions.retrofit_version = '2.9.0'
+versions.okhttp_version = '3.11.0'
+versions.glide_version = '4.9.0'
+versions.lottie_version = '4.2.2'
+
+
+
+/**
+ * android
+ */
+deps.material = "com.google.android.material:material:$versions.material"
+deps.appcompat = "androidx.appcompat:appcompat:$versions.appcompat_version"
+deps.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraint_version"
+deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+deps.viewpager2 = "androidx.viewpager2:viewpager2:$versions.viewpager2"
+deps.ktx = "androidx.core:core-ktx:$versions.ktx"
+deps.kotlin_coroutine_version = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutine_version"
+deps.room = "androidx.room:room-runtime:$versions.room"
+deps.room_compiler = "androidx.room:room-compiler:$versions.room"
+
+// appcompat 에 포함됨
+//deps.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+//deps.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+
+// glide
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide_version"
+
+// lottie
+deps.lottie = "com.airbnb.android:lottie:$versions.lottie_version"
+
+/**
+ * kotlin
+ */
+def kotlin = [:]
+deps.kotlin = kotlin
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version"
+kotlin.coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutine_version"
+kotlin.coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutine_version"
+
+/**
+ * retrofit2
+ */
+def retrofit = [:]
+deps.retrofit = retrofit
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit_version"
+retrofit.gson_converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit_version"
+retrofit.scalars_converter = "com.squareup.retrofit2:converter-scalars:$versions.retrofit_version" // response - string
+
+/**
+ * okhttp3
+ */
+def okhttp3 = [:]
+deps.okhttp3 = okhttp3
+okhttp3.runtime = "com.squareup.okhttp3:okhttp:$versions.okhttp_version"
+okhttp3.logging = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_version"
+
+ext.deps = deps
