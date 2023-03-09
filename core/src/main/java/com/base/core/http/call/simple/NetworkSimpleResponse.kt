@@ -18,8 +18,8 @@ open class NetworkSimpleResponse<T : Any> {
     }
 
     var t : T? = null
-    var code : Int? = null
-    var errorMsg : String? = ""
+    var code : Int = -1
+    var errorMsg : String = ""
 
     constructor(t: T) {
         this.t = t
@@ -44,8 +44,8 @@ open class NetworkSimpleResponse<T : Any> {
     fun onResult(onSuccess : (T) ->Unit, onFailed : (Int, String) -> Unit){
         if(t != null){
             onSuccess(t!!)
-        }else if(code != null && errorMsg != null){
-            onFailed(code!!, errorMsg!!)
+        } else {
+            onFailed(code, errorMsg)
         }
     }
 }

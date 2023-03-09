@@ -1,12 +1,10 @@
-package com.base.basemodule
+package com.base.basemodule.sample
 
 import android.content.Intent
 import android.os.Bundle
 import com.base.basemodule.databinding.ActivityMainBinding
 import com.base.basemodule.recyclerview.ActivityUser
-import com.base.common.callback.SingleCallback
 import com.base.view.activity.BaseActivity
-import com.base.view.animation.AnimationUtils
 
 class MainActivity : BaseActivity() {
 

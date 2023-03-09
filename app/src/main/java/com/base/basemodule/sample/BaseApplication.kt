@@ -1,4 +1,4 @@
-package com.base.basemodule
+package com.base.basemodule.sample
 
 import android.app.Application
 import com.base.common.DLog
@@ -6,7 +6,8 @@ import com.base.core.http.RetrofitUtil
 
 class BaseApplication : Application() {
 
-    private val baseURL = "http://api.88care.co.kr";
+    // fixme - url
+    private val baseURL = "https://jsonplaceholder.typicode.com";
 
     override fun onCreate() {
         super.onCreate()

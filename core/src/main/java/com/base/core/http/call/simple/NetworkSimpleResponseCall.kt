@@ -33,17 +33,25 @@ internal class NetworkSimpleResponseCall<S : Any>(
                     }
                 } else {
                     // error
-                    callback.onResponse(
-                        this@NetworkSimpleResponseCall,
-                        Response.success(NetworkSimpleResponse(NetworkSimpleResponse.ERROR_CODE_API, NetworkSimpleResponse.ERROR_MSG_API))
-                    )
+                    if(error != null){
+
+                        callback.onResponse(
+                            this@NetworkSimpleResponseCall,
+                            Response.success(NetworkSimpleResponse(NetworkSimpleResponse.ERROR_CODE_API, NetworkSimpleResponse.ERROR_MSG_API + " : " + error.toString()))
+                        )
+                    } else {
+                        callback.onResponse(
+                            this@NetworkSimpleResponseCall,
+                            Response.success(NetworkSimpleResponse<S>(NetworkSimpleResponse.ERROR_CODE_UNKNOWN, NetworkSimpleResponse.ERROR_MSG_UNKNOWN)) // unknown error
+                        )
+                    }
                 }
             }
 
             override fun onFailure(call: Call<S>, throwable: Throwable) {
                 val networkResponse = when (throwable) {
-                    is IOException -> NetworkSimpleResponse<S>(NetworkSimpleResponse.ERROR_CODE_NETWORK, NetworkSimpleResponse.ERROR_MSG_NETWORK) // network error
-                    else -> NetworkSimpleResponse<S>(NetworkSimpleResponse.ERROR_CODE_UNKNOWN, NetworkSimpleResponse.ERROR_MSG_UNKNOWN) // unknown error
+                    is IOException -> NetworkSimpleResponse<S>(NetworkSimpleResponse.ERROR_CODE_NETWORK, NetworkSimpleResponse.ERROR_MSG_NETWORK + " : " + throwable.localizedMessage) // network error
+                    else -> NetworkSimpleResponse<S>(NetworkSimpleResponse.ERROR_CODE_UNKNOWN, NetworkSimpleResponse.ERROR_MSG_UNKNOWN + " : " + throwable.localizedMessage) // unknown error
                 }
                 callback.onResponse(
                     this@NetworkSimpleResponseCall,
