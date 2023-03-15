@@ -58,3 +58,5 @@ dependencies {
     api deps.okhttp3.runtime
     api deps.okhttp3.logging
 }
+
+group='com.github.YouJongKwon'

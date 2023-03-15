@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.base.basemodule.databinding.ActivityHttpBinding
 import com.base.basemodule.sample.http.viewmodel.PostViewModel
 import com.base.common.callback.ResponseCallback
-import com.base.view.activity.BaseActivity
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.base.common.BaseActivity
 
 class ActivityHttp : BaseActivity() {
 

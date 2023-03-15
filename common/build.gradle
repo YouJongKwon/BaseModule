@@ -46,6 +46,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation deps.ktx
-
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
 
 }
+
+group='com.github.YouJongKwon'
