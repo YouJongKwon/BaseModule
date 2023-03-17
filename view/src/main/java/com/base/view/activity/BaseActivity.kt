@@ -1,4 +1,4 @@
-package com.base.common
+package com.base.view.activity
 
 import android.content.Context
 import android.os.Bundle

@@ -7,7 +7,7 @@ import com.base.basemodule.databinding.ActivityUserBinding
 import com.base.basemodule.recyclerview.adapter.AdapterUser
 import com.base.basemodule.recyclerview.datamodel.UserDataModel
 import com.base.basemodule.recyclerview.viewmodel.UserViewModel
-import com.base.common.BaseActivity
+import com.base.view.activity.BaseActivity
 
 class ActivityUser : BaseActivity() {
 

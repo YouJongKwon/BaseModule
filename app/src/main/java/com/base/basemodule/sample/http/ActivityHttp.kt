@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.base.basemodule.databinding.ActivityHttpBinding
 import com.base.basemodule.sample.http.viewmodel.PostViewModel
 import com.base.common.callback.ResponseCallback
-import com.base.common.BaseActivity
+import com.base.view.activity.BaseActivity
 
 class ActivityHttp : BaseActivity() {
 

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.base.basemodule.databinding.ActivityMainBinding
 import com.base.basemodule.recyclerview.ActivityUser
-import com.base.common.BaseActivity
+import com.base.view.activity.BaseActivity
 
 class MainActivity : BaseActivity() {
 
