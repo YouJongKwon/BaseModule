@@ -6,7 +6,9 @@ import com.base.basemodule.databinding.ActivityMainBinding
 import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
+// main
 class MainActivity : BaseActivity() {
+
 
     private lateinit var mBinding: ActivityMainBinding
 
