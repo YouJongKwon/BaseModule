@@ -6,7 +6,7 @@ import com.base.basemodule.databinding.ActivityMainBinding
 import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
-// main 화면 test
+// main 화면
 class MainActivity : BaseActivity() {
 
 
