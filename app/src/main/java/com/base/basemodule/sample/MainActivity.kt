@@ -7,7 +7,7 @@ import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
 /**
- * GPG 인증 확인
+ * GPG 인증 확인 2
  */
 // main 화면
 class MainActivity : BaseActivity() {
