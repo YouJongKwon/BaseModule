@@ -7,11 +7,9 @@ import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
 /**
- * GPG 인증 확인 3
+ * Sample - Main 화면 첫실행 화면3
  */
-// main 화면
 class MainActivity : BaseActivity() {
-
 
     private lateinit var mBinding: ActivityMainBinding
 
