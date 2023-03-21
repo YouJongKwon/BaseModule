@@ -6,6 +6,9 @@ import com.base.basemodule.databinding.ActivityMainBinding
 import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
+/**
+ * Sample - Main 화면 첫실행 화면
+ */
 class MainActivity : BaseActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
