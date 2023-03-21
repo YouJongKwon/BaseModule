@@ -9,9 +9,10 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+#    branches: [ "master" ]
+    branches: [ "dev_github_actions" ]
+#  pull_request:
+#    branches: [ "master" ]
 
 permissions:
   contents: read
@@ -32,3 +33,6 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
+
+    - name: Github Pull Request
+      uses: repo-sync/pull-request@master
