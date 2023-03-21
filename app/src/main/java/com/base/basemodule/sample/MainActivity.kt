@@ -7,7 +7,7 @@ import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
 /**
- * YouJongKwon으로 commit 2
+ * YJK 계정으로 commit
  */
 // main 화면
 class MainActivity : BaseActivity() {
