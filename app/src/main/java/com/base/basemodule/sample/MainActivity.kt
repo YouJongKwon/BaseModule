@@ -7,7 +7,7 @@ import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
 /**
- * Sample - Main 화면 첫실행 화면
+ * Sample - Main 화면 첫실행 화면 2
  */
 class MainActivity : BaseActivity() {
 
