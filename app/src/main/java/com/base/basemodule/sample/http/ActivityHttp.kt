@@ -8,6 +8,10 @@ import com.base.basemodule.sample.http.viewmodel.PostViewModel
 import com.base.common.callback.ResponseCallback
 import com.base.view.activity.BaseActivity
 
+/**
+ * Http 테스트 화면
+ * todo - Http모듈에서 헤더에 토큰값 설정하는 부분 추가해야함
+ */
 class ActivityHttp : BaseActivity() {
 
     private lateinit var mBinding: ActivityHttpBinding
