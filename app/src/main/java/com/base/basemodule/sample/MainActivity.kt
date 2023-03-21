@@ -7,7 +7,7 @@ import com.base.basemodule.recyclerview.ActivityUser
 import com.base.view.activity.BaseActivity
 
 /**
- * Test 1
+ * PR Test
  */
 class MainActivity : BaseActivity() {
 
