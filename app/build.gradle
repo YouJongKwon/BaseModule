@@ -34,6 +34,18 @@ android {
 //            resValue "string", "server_url", "http://"
 //        }
 //    }
+    signingConfigs {
+        release {
+            def configFile = project.rootProject.file('./app/signingconfig.properties')
+            def properties = new Properties()
+            properties.load(new FileInputStream(configFile))
+
+            storeFile file(properties.storeFile)
+            storePassword properties.storePassword
+            keyAlias properties.keyAlias
+            keyPassword properties.keyPassword
+        }
+    }
 
     buildTypes {
         debug {
@@ -49,8 +61,11 @@ android {
             minifyEnabled true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
+
     dataBinding {
         enabled true
     }
