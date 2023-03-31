@@ -36,7 +36,7 @@ android {
 //    }
     signingConfigs {
         release {
-            def configFile = project.rootProject.file('signingconfig.properties')
+            def configFile = project.rootProject.file('./app/signingconfig.properties')
             def properties = new Properties()
             properties.load(new FileInputStream(configFile))
 
