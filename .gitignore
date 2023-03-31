@@ -88,4 +88,4 @@ lint/tmp/
 *.keystore
 
 # Signing config files
-signingconfig.properties
+app/signingconfig.properties
