@@ -17,7 +17,7 @@ deps.versions = versions
 deps.versions.compileSdkVersion = 32
 deps.versions.buildToolsVersion = "30.0.3"
 deps.versions.minSdkVersion = 21
-deps.versions.versionCode = 1
+deps.versions.versionCode = 2
 deps.versions.versionName = "1.0.1"
 
 // source version
